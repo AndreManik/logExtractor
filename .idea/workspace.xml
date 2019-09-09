@@ -2,35 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08a99f6e-0e56-406b-8b6b-15d78f7ae288" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_23_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/manik/utils/LogServiceUtilImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogReaderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/SingleLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/TimeSampler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logExtractor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/logExtractor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/logExtractor/com/manik/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/logExtractor/com/manik/utils/LogLevel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/logExtractor/com/manik/utils/LogServiceUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/logExtractor/com/manik/utils/LogServiceUtilImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/manik/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/manik/utils/LogLevel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/manik/utils/LogServiceUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/manik/utils/LogServiceUtilImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/manik/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/manik/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/manik/utils/LogServiceUtilImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/manik/utils/LogServiceUtilImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/log 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/log 1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/log 2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/log.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,10 +25,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -60,7 +44,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="D:/Study/EXERSIZES/coursehunter.net/Spring-Framework-5/spring5-recipe-app" />
+    <property name="last_opened_file_path" value="D:/Study/JavaIntership/Topjava16/gitProject/topjava-2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -92,7 +76,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LogServiceUtilImplTest.logExtractorByLogLevel">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.manik.Main" />
       <module name="logExtractor" />
@@ -103,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogServiceUtilImplTest.logCountByHoursErrorsMessages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LogServiceUtilImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="logExtractor" />
       <extension name="coverage">
         <pattern>
@@ -113,13 +97,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.manik.utils" />
       <option name="MAIN_CLASS_NAME" value="com.manik.utils.LogServiceUtilImplTest" />
-      <option name="METHOD_NAME" value="logCountByHoursErrorsMessages" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogServiceUtilImplTest.logCountByHours" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="logExtractor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.manik.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.manik.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.manik.utils.LogServiceUtilImplTest" />
+      <option name="METHOD_NAME" value="logCountByHours" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogServiceUtilImplTest.logExtractorByLogLevel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LogServiceUtilImplTest.logCountingByTimeIntervals1day" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="logExtractor" />
       <extension name="coverage">
         <pattern>
@@ -129,7 +128,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.manik.utils" />
       <option name="MAIN_CLASS_NAME" value="com.manik.utils.LogServiceUtilImplTest" />
-      <option name="METHOD_NAME" value="logExtractorByLogLevel" />
+      <option name="METHOD_NAME" value="logCountingByTimeIntervals1day" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogServiceUtilImplTest.logCountingByTimeIntervals1h" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="logExtractor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.manik.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.manik.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.manik.utils.LogServiceUtilImplTest" />
+      <option name="METHOD_NAME" value="logCountingByTimeIntervals1h" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogServiceUtilImplTest.logCountingByTimeIntervals5min" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="logExtractor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.manik.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.manik.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.manik.utils.LogServiceUtilImplTest" />
+      <option name="METHOD_NAME" value="logCountingByTimeIntervals5min" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,13 +168,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.LogServiceUtilImplTest.logCountByHoursErrorsMessages" />
-      <item itemvalue="JUnit.LogServiceUtilImplTest.logExtractorByLogLevel" />
+      <item itemvalue="JUnit.LogServiceUtilImplTest.logCountByHours" />
+      <item itemvalue="JUnit.LogServiceUtilImplTest.logCountingByTimeIntervals1h" />
+      <item itemvalue="JUnit.LogServiceUtilImplTest.logCountingByTimeIntervals1day" />
+      <item itemvalue="JUnit.LogServiceUtilImplTest" />
+      <item itemvalue="JUnit.LogServiceUtilImplTest.logCountingByTimeIntervals5min" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LogServiceUtilImplTest.logExtractorByLogLevel" />
-        <item itemvalue="JUnit.LogServiceUtilImplTest.logCountByHoursErrorsMessages" />
+        <item itemvalue="JUnit.LogServiceUtilImplTest.logCountingByTimeIntervals5min" />
+        <item itemvalue="JUnit.LogServiceUtilImplTest" />
+        <item itemvalue="JUnit.LogServiceUtilImplTest.logCountByHours" />
+        <item itemvalue="JUnit.LogServiceUtilImplTest.logCountingByTimeIntervals1day" />
+        <item itemvalue="JUnit.LogServiceUtilImplTest.logCountingByTimeIntervals1h" />
       </list>
     </recent_temporary>
   </component>
@@ -159,8 +196,17 @@
       <updated>1567529305315</updated>
       <workItem from="1567529315157" duration="6359000" />
       <workItem from="1567536556927" duration="95000" />
-      <workItem from="1567536703146" duration="7813000" />
+      <workItem from="1567536703146" duration="21730000" />
+      <workItem from="1567941063505" duration="12185000" />
     </task>
+    <task id="LOCAL-00001" summary="#5 | add maven support | closes #5">
+      <created>1567625213327</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567625213327</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,24 +217,57 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="#5 | add maven support | closes #5" />
+    <option name="LAST_COMMIT_MESSAGE" value="#5 | add maven support | closes #5" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/manik/utils/LogServiceUtilImplTest.java</url>
-          <line>30</line>
-          <properties class="com.manik.utils.LogServiceUtilImplTest" method="logCountByHours">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
+          <line>46</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/manik/Main.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/manik/utils/LogServiceUtilImpl.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="innerString" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

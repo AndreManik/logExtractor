@@ -4,56 +4,79 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
+import java.util.logging.*;
 
 public class LogServiceUtilImpl implements LogServiceUtil<Set<String>, Map<LocalDateTime, Integer>> {
-    @Override
-    public Set<String> logExtractorByLogLevel(Path path, LogLevel logLevel) {
-        Set<String> resultSet = new HashSet<>();
-        try {
-            Files.list(Paths.get(path.toString()))
-                    .filter(Files::isRegularFile)
-                    .forEach(file -> {
-                        try {
-                            Files.lines(file, StandardCharsets.UTF_8).forEach(innerString -> {
-                                if (innerString.contains(logLevel.toString())) {
-                                    resultSet.add(innerString);
-                                }
-                            });
 
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private final SingleLogger LOGGER = SingleLogger.getInstance();
+
+    @Override
+    public Set<String> logExtractorByLogLevel(Set<String> logStrings, LogLevel logLevel) {
+        Set<String> resultSet = new TreeSet<>();
+        logStrings.forEach(innerString -> {
+            if (innerString.contains(logLevel.toString())) {
+                resultSet.add(innerString);
+            }
+        });
         return resultSet;
     }
 
     @Override
-    public Map<LocalDateTime, Integer> logCountByHours(Set<String> extractedLogs) {
+    public Map<LocalDateTime, Integer> logCountingByTimeIntervals(Set<String> extractedLogs, int min) {
         Map<LocalDateTime, Integer> resultMap = new TreeMap<>();
-        extractedLogs.forEach(innerString -> {
-            try {
-                LocalDateTime time = LocalDateTime.parse(innerString.split(";")[0]);
-                time = time.of(time.toLocalDate(), LocalTime.of(time.getHour(), 0));
-                resultMap.put(time, resultMap.getOrDefault(time, 0) + 1);
-            } catch (DateTimeParseException e) {
-                //e.printStackTrace();
-            }
-        });
+        Stack<LocalDateTime> timeStack = new Stack<>();
+
+        try {
+            extractedLogs.forEach(innerString -> {
+            //for (String innerString : extractedLogs) {
+                LocalDateTime time = null;
+                try {
+                    time = LocalDateTime.parse(innerString.split(";")[0]);
+                if (!timeStack.isEmpty() && (time.isAfter(timeStack.peek()) && time.isBefore(timeStack.peek().plusMinutes(min)))) {
+                    LocalDateTime lastTime = timeStack.pop();
+                    int countOfTime = resultMap.get(lastTime);
+                    resultMap.put(lastTime, countOfTime + 1);
+                    timeStack.push(lastTime);
+                }
+                else {
+                    if(!timeStack.isEmpty()) {
+                        timeStack.pop();
+                    }
+                    time = LocalDateTime.of(time.toLocalDate(), LocalTime.of(time.getHour(), time.getMinute(), 00));
+                    timeStack.push(time);
+                    resultMap.put(time, 1);
+                }
+                } catch (DateTimeParseException e) {
+                    LOGGER.log(Level.WARNING, "The text \"{0}\" could not be parsed", innerString.split(";")[0]);
+                }
+            //}
+            });
+        } catch (Exception e) {
+            LOGGER.log(Level.WARNING, e.toString());
+        }
 
         return resultMap;
     }
 
     @Override
-    public void logSaver(Map<LocalDateTime, Integer> sortedLogs, Path path, LogLevel logLevel) {
+    public Map<LocalDateTime, Integer> logCountingByTimeIntervals(Set<String> extractedLogs, int hour, int min) {
+        int interval = hour * 60 + min;
+        return logCountingByTimeIntervals(extractedLogs, interval);
+    }
+
+    @Override
+    public Map<LocalDateTime, Integer> logCountingByTimeIntervals(Set<String> extractedLogs, int day, int hour, int min) {
+        int interval = (day * 24 * 60) + (hour * 60) + min;
+        return logCountingByTimeIntervals(extractedLogs, interval);
+    }
+
+    @Override
+    public void logSaver(Map<LocalDateTime, Integer> sortedLogs, Path path, LogLevel logLevel, int interval) {
         DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH.mm");
 
@@ -61,14 +84,14 @@ public class LogServiceUtilImpl implements LogServiceUtil<Set<String>, Map<Local
 
         sortedLogs.forEach((key, value)  -> {
             String hourTime = key.format(timeFormatter) + "-";
-            hourTime += key.getHour() == 23 ? "00.00" : LocalTime.of(key.getHour() + 1, 00).format(timeFormatter);;
-            String timeString = key.format(dayFormatter) + ", " + hourTime;
+            String timeString = key.format(dayFormatter) + ", " + key.format(timeFormatter) +" - " +
+                                key.plusMinutes(interval).format(dayFormatter) + ", " + key.plusMinutes(interval).format(timeFormatter) ;
             resultList.add(timeString  + "\nCount of " + logLevel + ": " + value);
         });
         try {
             Files.write(path, resultList, StandardCharsets.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, e.toString());
         }
     }
 }
